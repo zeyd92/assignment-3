@@ -1,1 +1,430 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+} 
+html,body {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
+}
+body { 
+  font-family: Arial, sans-serif; 
+  line-height: 1.6;
+} 
 
+   /* Navigation bar */ 
+  nav { 
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav); 
+    padding: 15px 40px;
+  } 
+  .nav-links {
+    display: flex;
+    gap: 50px;
+  }
+  nav a {
+    color: #f1f5f9; 
+    text-decoration: none; 
+    font-weight: bold; 
+  } 
+  nav a:hover { 
+    color: #60a5fa; /* When passing over*/ 
+  }
+
+  :root {
+  --bg: #f5f7fb;
+  --text: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --link: #2563eb;
+  --accent: #2563eb;
+  --nav: #ffffff;
+  --surface-1: #e9efff;
+  --surface-2: #eef2ff;
+  --surface-3: #f8fafc;
+  --btn: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --text: #e6edf3;
+    --muted: #a9b4c2;
+    --card: #0f172a;
+    --border: #1f2a44;
+    --link: #60a5fa;
+    --accent: #60a5fa;
+    --nav: #0c1627;
+    --surface-1: #12223c;
+    --surface-2: #152a4b;
+    --surface-3: #0f1b33;
+    --btn: #3b82f6;
+  }
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --text: #e6edf3;
+  --muted: #a9b4c2;
+  --card: #0f172a;
+  --border: #1f2a44;
+  --link: #60a5fa;
+  --accent: #60a5fa;
+  --nav: #0c1627;
+  --surface-1: #12223c;
+  --surface-2: #152a4b;
+  --surface-3: #0f1b33;
+  --btn: #3b82f6;
+}
+
+html[data-theme="light"] {
+  --bg: #f5f7fb;
+  --text: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --border: #c7d2fe;
+  --link: #2563eb;
+  --accent: #2563eb;
+  --nav: #1e3a8a;
+  --surface-1: #dbe7ff;
+  --surface-2: #e1e9ff;
+  --surface-3: #e9efff;
+  --btn: #2563eb;
+}
+
+a { color: var(--link); }
+.muted { color: var(--muted); }
+.card, .project, .project-card, .contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+button, .btn, .chip, .fab {
+  border-color: var(--border);
+}
+
+.theme-toggle {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background .2s ease, transform .1s ease;
+  margin: 8px;
+}
+.theme-toggle:hover { transform: translateY(-1px); }
+
+     /* Sections */ 
+     section { 
+      padding: 60px 20px; 
+      text-align: center; 
+      margin: 20px;
+      border-radius: 10px;
+    } 
+    /* About section */ 
+    #about { 
+      background: var(--surface-1); 
+      margin: 20px; 
+      border-radius: 10px; 
+      padding: 30px; 
+    } 
+
+
+        /* Search bar */
+    .project-controls {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    #project-search {
+      width: 100%;
+      max-width: 420px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      outline: none;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    #project-search:focus {
+      border-color: var(--link);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.2);
+    }
+
+    .is-hidden { display: none !important; }
+
+    /* No results*/
+    .empty {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+      /* Projects section */ 
+      #projects { 
+        background: var(--surface-2);  
+        margin: 20px; 
+        border-radius: 10px; 
+        padding: 30px; 
+      } 
+        .project {
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin: 28px auto;
+    max-width: 1100px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+
+    transition: transform .2s ease, background .2s ease;
+    }
+
+    
+    .project:hover {
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-4px);
+    }
+
+    .project-left {
+    width: 260px;
+    text-align: center;
+    }
+
+    .project-left h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    }
+
+    .project-left img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    }
+
+    .project-right {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.7;
+    }
+
+    .project-right p {
+    margin-bottom: 12px;
+    }
+      
+      
+      /* Contact section */ 
+      #contact { 
+        background: var(--surface-3); 
+        margin: 20px; 
+        border-radius: 10px; 
+        padding: 30px; 
+      } 
+      button { 
+        background: var(--btn); 
+        color: #f1f5f9; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        transition: background 0.3s ease;
+      } 
+      button:hover { 
+        filter: brightness(0.92);
+      } 
+      
+      .contact-float { 
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        display: flex; 
+        flex-direction: column-reverse; 
+        align-items: flex-end; 
+        z-index: 1000; 
+      } 
+      /* Contact flotting Button*/ 
+      #contact-btn { 
+        background: #3b82f6; 
+        color: #fff; 
+        border: none; 
+        border-radius: 50%; 
+        width: 50px; 
+        height: 50px; 
+        font-size: 24px; 
+        cursor: pointer; 
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+        transition: background 0.3s ease; 
+      } 
+      #contact-btn:hover { 
+        background: #1e40af; 
+      } 
+       
+      #contact-card { 
+        background: #f1f5f9; 
+        color: #0f172a; 
+        padding: 15px 16px; 
+        border-radius: 10px; 
+        margin-bottom: 10px; 
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2); 
+        width: 240px; 
+        text-align: left; 
+
+        /*When closed*/ 
+        transform: translateY(12px);  
+        opacity: 0; 
+        pointer-events: none; 
+        transition: transform 0.6s ease, opacity 0.6s ease; 
+        will-change: transform, opacity;
+      } 
+      /*When open*/ 
+      #contact-card.show { 
+        transform: translateY(0); 
+        opacity: 1; 
+        pointer-events: auto; 
+      } 
+      #contact-card::after { 
+        content: ""; 
+        position: absolute; 
+        right: 28px; 
+        bottom: -8px; 
+        width: 0; 
+        height: 0; 
+        border-left: 8px solid transparent; 
+        border-right: 8px solid transparent; 
+        border-top: 8px solid #f1f5f9; 
+        filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.08)); 
+      }
+      @media (prefers-reduced-motion: reduce) { 
+        #contact-card { transition: none; } 
+      }
+
+      /* For Flex/Grid */ 
+      @media (min-width: 768px) { 
+        .project { 
+          flex-wrap: nowrap;
+        } 
+      }
+
+      /* For More details buttons*/
+      .toggle-details {
+        background: none;
+        border: none;
+        color: #007acc;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        margin-top: 10px;
+      }
+
+      .toggle-details:hover {
+        color: #005f99;
+      }
+
+      /*To make it hidden first*/
+      .details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+        opacity: 0;
+        margin-top: 8px;
+      }
+
+      .details.active {
+        max-height: 200px;
+        opacity: 1;
+      }
+      
+      .project-right {
+        position: relative;
+      }
+
+      /* For greeting message*/
+      .greeting-box {
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      #greeting-message {
+        margin-bottom: 10px;
+      }
+
+      #name-input {
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 14px;
+        width: 180px;
+      }
+
+      #save-name {
+        margin-left: 8px;
+        padding: 8px 14px;
+        border: none;
+        background: #3b82f6;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      #save-name:hover {
+        background: #2563eb;
+      }
+
+      .github-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+    }
+
+      .github-repo-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 16px;
+        border-radius: 10px;
+        text-align: left;
+}
+
+
+      .github-repo-card h3 {
+            margin-bottom: 8px;
+    }
+
+      .github-repo-card a {
+            color: var(--link);
+            font-weight: bold;
+    }
+
+        .github-repo-card {
+            position: relative;
+}
+
+        .repo-date {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 12px;
+            opacity: 0.45;
+            color: var(--text);
+}
+
+        .error {
+        color: #ef4444;
+        font-size: 13px;
+        height: 14px;
+        }
+
+        .success {
+        color: #22c55e;
+        margin-top: 10px;
+        display: block;
+        }
